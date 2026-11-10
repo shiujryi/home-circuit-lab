@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#10221f">
+  <meta name="description" content="以電燈和電風扇練習台灣住宅 110V 插座、單切與雙切開關的端子辨識與配線測試。">
+  <title>家用配電實驗室｜插座與開關互動學習</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="#top"><span class="brand-icon">⌁</span><span>家用配電<span class="brand-accent">實驗室</span></span></a>
+    <div class="header-right"><span class="voltage-chip"><span class="pulse-dot"></span>台灣住宅・110V 練習</span><a href="#about" class="header-link">使用說明 ↗</a></div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="hero-copy"><span class="eyebrow">INTERACTIVE CIRCUIT LEARNING / 01</span><h1>接對了嗎？<br><em>讓電路告訴你。</em></h1><p>從一盞燈、一台電風扇開始，認識插座與開關背後的端子。看實物、配接點、送電測試，再理解「能運作」與「接線正確」的差別。</p><a class="hero-cta" href="#workbench">開始模擬 <span>↗</span></a></div>
+      <div class="hero-visual" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="hero-light">✳</div><span class="hero-label label-top">L1 ━ 110V ━ N</span><span class="hero-label label-bottom">LIGHT · SWITCH · OUTLET · FAN</span></div>
+    </section>
+
+    <section class="bench" id="workbench" aria-labelledby="bench-title">
+      <div class="section-head"><div><span class="eyebrow dark">THE WORKBENCH</span><h2 id="bench-title">選一個迴路，動手試試看。</h2></div><p>三個單元，共用一個原則：先辨認端子，再觀察設備，最後檢查接線。</p></div>
+      <div class="lesson-tabs" role="tablist" aria-label="學習單元">
+        <button type="button" class="lesson-tab active" role="tab" aria-selected="true" data-lesson="outlet"><span>01</span> 110V 插座</button>
+        <button type="button" class="lesson-tab" role="tab" aria-selected="false" data-lesson="single"><span>02</span> 單切開關</button>
+        <button type="button" class="lesson-tab" role="tab" aria-selected="false" data-lesson="double"><span>03</span> 雙切開關</button>
+      </div>
+
+      <div class="workspace">
+        <article class="panel object-panel"><div class="panel-heading"><span class="panel-kicker">01 / 認識元件</span><h3 id="object-title">110V 接地插座</h3><p id="object-subtitle">先看端子，再試著讓電風扇運轉。</p></div>
+          <div class="view-toggle" role="group" aria-label="元件檢視"><button type="button" class="view-btn active" data-view="photo">實物照片</button><button type="button" class="view-btn" data-view="terminals">端子示意</button></div>
+          <div class="object-stage" id="object-stage"></div>
+          <p class="stage-caption" id="stage-caption"></p>
+          <div class="source-note"><span>實物與型號</span><a id="product-link" href="https://www.panasonic.com/tw/homeliving/housing/wiring/switches/deco-lite.html" target="_blank" rel="noopener noreferrer">查看台灣常見型號 ↗</a></div>
+        </article>
+
+        <article class="panel circuit-panel"><div class="panel-heading"><span class="panel-kicker">02 / 操作迴路</span><h3 id="circuit-title">插座與電風扇</h3><p id="circuit-subtitle">切換分路電源與電器開關，觀察負載狀態。</p></div>
+          <div class="circuit-stage"><div class="circuit-meta"><span class="live-pill" id="power-pill">● 分路供電中</span><span>交流 110V · 概念模擬</span></div><div id="circuit-svg" class="circuit-svg" aria-label="互動配線圖"></div><div class="device-status"><span class="device-icon" id="device-icon">◌</span><div><strong id="device-title">電風扇停止</strong><small id="device-detail">插上電器，觀察它是否運轉。</small></div></div></div>
+          <div class="controls"><button type="button" id="breaker-btn" class="control-btn">分路電源：開</button><button type="button" id="device-btn" class="control-btn primary">電風扇：關</button><button type="button" id="reset-btn" class="reset-btn" title="重設本單元">↺ 重設</button></div>
+          <div class="double-controls hidden" id="double-controls"><button type="button" id="switch-a-btn" class="control-btn">樓下開關：位置 1</button><button type="button" id="switch-b-btn" class="control-btn">樓上開關：位置 1</button></div>
+        </article>
+
+        <article class="panel test-panel"><div class="panel-heading"><span class="panel-kicker">03 / 接線檢查</span><h3>完成端子辨識</h3><p id="test-intro">將導線配到插座背面的端子，再送電測試。</p></div><div class="test-form" id="test-form"></div><div class="test-actions"><button type="button" class="test-button" id="test-btn">送電測試 <span>↗</span></button><button type="button" class="example-button" id="mistake-btn">載入常見錯誤</button></div><div class="result" id="result" role="status" aria-live="polite"><span class="result-icon">◎</span><div><strong>等待測試</strong><p>調整上方的端子配對，再按「送電測試」。</p></div></div></article>
+      </div>
+    </section>
+
+    <section class="concepts" id="about"><div class="concepts-intro"><span class="eyebrow">THE IDEA BEHIND THE LIGHT</span><h2>亮了、轉了，<br>還要看接點。</h2><p>電燈與電風扇能快速顯示迴路是否工作；端子檢查則補上肉眼看不到的接線問題。</p></div><div class="concept-list"><div class="concept"><span>01</span><div><h3>設備能運作</h3><p>燈會亮、風扇會轉，表示負載取得供電，卻無法單憑此結果判斷每個端子都正確。</p></div></div><div class="concept"><span>02</span><div><h3>端子關係正確</h3><p>插座須核對火線、中性線與保護接地；開關須核對進線、控制線及雙切的共用端。</p></div></div><div class="concept"><span>03</span><div><h3>看清產品差異</h3><p>練習中的端子圖用來說明原理。實際端子位置與可用線材，必須看手上產品的型號及原廠資料。</p></div></div></div></section>
+    <section class="safety"><span class="safety-symbol">✳</span><div><h2>這是模擬學習工具</h2><p>畫面中的送電與接線都是虛擬操作。實際更換插座或開關前，須隔離相關電源並確認無電；無法辨認導線或迴路時，請交由合格電氣人員處理。</p></div></section>
+  </main>
+  <footer><div class="footer-top"><strong>家用配電實驗室</strong><span>從生活設備，理解看不見的電路。</span></div><p>照片為授權使用的實物參考，非 Panasonic 示範型號；精確端子位置請以產品原廠標示為準。<a href="./sources.html">照片、型號與資料來源 ↗</a></p></footer>
+</body>
+</html>
